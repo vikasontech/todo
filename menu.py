@@ -1,15 +1,31 @@
+from json_utils import check_valid_json
+from task_data import task_data
+
+
 def take_input_for_new_task():
 
   date = input("Input Reminder Date(ddmmyyyy)Ex:31122020:: ")
   description = input("Description:: ")
   print("input date: ", date)
   print("input description: ", description)
-  return [date, description]
+  data = task_data()
+  data.date = date
+  data.description = description
+
+  print("data value: ", data.description)
+
+  return data
+
+
+def save_the_event_in_db(task):
+  check_valid_json(task.description)
+
 
 def handle_create_new_reminder():
   task = take_input_for_new_task()
   print(task)
 
+  save_the_event_in_db(task)
   print("TODO: save the event in db")
   input()
 
