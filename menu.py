@@ -1,16 +1,18 @@
 def take_input_for_new_task():
+
   date = input("Input Reminder Date(ddmmyyyy)Ex:31122020:: ")
   description = input("Description:: ")
   print("input date: ", date)
   print("input description: ", description)
   return [date, description]
 
-def handleCreateNewReminder(self):
-  task = self.take_input_for_new_task()
+def handle_create_new_reminder():
+  task = take_input_for_new_task()
   print(task)
 
   print("TODO: save the event in db")
   input()
+
 
 def print_task_detail(task):
   try:
@@ -20,6 +22,7 @@ def print_task_detail(task):
   except Exception:
     print("")
   input("\nPress any key to continue ...\n")
+
 
 def search_task_by_task_id(task_id):
   print("TODO: search a task and print its details")
@@ -71,7 +74,7 @@ def print_menu():
     choice = input()
 
     if choice == '1':
-      handleCreateNewReminder()
+      handle_create_new_reminder()
 
     elif choice == '2':
       handle_update_reminder()
